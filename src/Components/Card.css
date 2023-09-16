@@ -1,0 +1,172 @@
+.card, .allcards{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #DDE6ED;
+  color: black;
+  }
+
+.fav {
+  color: #48515a;
+}
+.link {
+  text-decoration: none;
+  color: #DDE6ED;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 0.2fr); 
+  place-content: center;
+  padding: 20px 0 ;
+  width: 100%;
+  
+}
+
+.allcards {
+  display: flex;
+  flex-direction: column;
+  text-align-last: center;
+  border: 2px solid #ccc;
+  width: 20vw;
+  margin: 8px !important;
+  padding: 16px ;
+  border-radius: 8px;
+  font-size: 0.5em;
+  border: 2px solid #ffffff;
+}
+
+.favButton, .deleteButton {
+  min-width: 95px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+  background: #404041;
+  align-self: center;
+  width: 70%;
+}
+.favButton:hover {
+  background-color: #c7ced4;
+}
+.favButton:active {
+  top: 2px;
+}
+
+.deleteButton {
+  background: #c70101;
+}
+
+.deleteButton:hover {
+  background: #a30000;
+}
+
+.favButton:hover {
+  background-color: #6b7276;
+}
+
+.name {
+  padding-top: 15px;
+}
+
+.username {
+  font-size: 14px !important;
+  padding: 12px 0;
+  font-weight: 500;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 60px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.smallHeight, .empty, .detalles  {
+  height: 67.4vh;
+}
+
+.detalles {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.cdetalles {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 30%;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 52%;
+  place-content: space-around;
+  background: #526d82b4;
+  padding: 30px 50px;
+  border-radius: 8px;
+  border: 2px solid #ffffff;
+}
+
+.dweb {
+  display: flex;
+  justify-content: center;
+}
+
+.dweb p {
+  padding-right: 10px;
+}
+
+.favorite-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.favorite {
+  transform: scale(1.2);
+  fill: red; /* Cambia el color del corazón cuando se marca como favorito */
+}
+
+@media (max-width: 950px) {
+  .container{
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    padding-bottom: 60px;
+
+  }
+
+  .allcards {
+    width: 36vw;
+  }
+
+  .name {
+    font-size: 12px;
+  }
+
+  .cdetalles {
+    width: 60%;
+  }
+
+
+  .titulo {
+    font-size: 2.3rem;
+    padding-top: 30px;
+
+  }
+}

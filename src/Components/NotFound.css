@@ -1,0 +1,15 @@
+.container {
+    text-align: center;
+    padding: 38px 0;
+  }
+  
+  .image {
+    width: 58%;
+  }
+  
+  @media (max-width: 1240px) {
+    .image {
+      width: 100%;
+    }
+  }
+  

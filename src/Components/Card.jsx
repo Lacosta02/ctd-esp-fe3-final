@@ -1,20 +1,40 @@
-import React from "react";
+import React from 'react';
+import './Card.css';
+import { useAppContext } from '../Components/utils/GlobalContextDentista';
+import { Link } from 'react-router-dom';
+import image from '../assets/doctor.jpg';
 
+const Card = ({ dentista }) => {
+  const { addFav, removeFav, favs } = useAppContext();
 
-const Card = ({ name, username, id }) => {
+  const { id, name, username } = dentista;
+  const isFavorito = favs.some((fav) => fav.id === id);
 
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+  const handleAddFav = (e) => {
+    e.preventDefault();
+    if (isFavorito) {
+      removeFav(id);
+    } else {
+      addFav(id);
+    }
+  };
+
+  const cardClass = isFavorito ? 'fav' : 'card';
+  const nameClass = isFavorito ? 'favName' : 'name';
+  const usernameClass = isFavorito ? 'favUsername' : 'username';
 
   return (
-    <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+    <div className="allcards">
+      <Link className="link" to={`/detail/${id}`}>
+        <div className={cardClass}>
+          <img src={image} width="45%" style={{ borderRadius: '50%' }} alt="doctor" />
+          <h1 className={nameClass}>{name}</h1>
+          <p className={usernameClass}>{username}</p>
+        </div>
+      </Link>
+      <button onClick={handleAddFav} className={isFavorito ? 'deleteButton' : 'favButton'}>
+        {isFavorito ? 'Eliminar de Favoritos' : 'Agregar a favoritos'}
+      </button>
     </div>
   );
 };

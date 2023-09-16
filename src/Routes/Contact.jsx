@@ -1,14 +1,25 @@
-import React from 'react'
-import Form from '../Components/Form'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import React, { useState } from 'react'
+import Form from '../Components/Form';
 
 const Contact = () => {
+  const [usuario, setUsuario] = useState('')
+
+
+  function handleForm(nombre, apellido, email) {
+    const usuario = {
+      nombre: nombre,
+      apellido: apellido,
+      email: email
+    }
+    setUsuario(usuario);
+  }
+
+  console.log('Datos del formulario:', usuario);
+
+
   return (
-    <div>
-      <h2>Want to know more?</h2>
-      <p>Send us your questions and we will contact you</p>
-      <Form/>
+    <div>      
+      <Form onForm={handleForm}/>
     </div>
   )
 }
